@@ -1,27 +1,13 @@
-# 🧠 GROQ Chatbot using LangChain + Streamlit
+# 💬 Groq Chatbot using Streamlit + Langchain
 
-This is a lightweight chatbot built using **LangChain**, **Groq LLMs**, and **Streamlit**. It can answer questions and engage in conversations — all through blazing fast inference powered by Groq!
+This is a simple LLM-powered chatbot built using:
 
----
+- 🧠 **[Groq API](https://console.groq.com/)**
+- ⚙️ **[Langchain](https://www.langchain.com/)**
+- 🌐 **[Streamlit](https://streamlit.io/)** for UI
+- 🚀 Deployed on **Streamlit Cloud**
 
-## 🚀 Features
-
-- ✅ Uses **Groq API** (LLMs like Mixtral, LLaMA3)
-- ✅ Built with **LangChain** for managing the chain
-- ✅ Easy interface with **Streamlit**
-- ✅ Fully customizable and extensible
-- ✅ Ready for deployment on **Streamlit Cloud**
-
----
-
-## 🧰 Tech Stack
-
-| Tool       | Role                         |
-|------------|------------------------------|
-| Python     | Core programming language    |
-| LangChain  | LLM chaining and prompts     |
-| Groq       | Fast inference (LLM backend) |
-| Streamlit  | Web-based frontend           |
+👉 **Live Demo:** [Click here to chat!](https://groqchatbot-hwvzuumg83gdzqd92drbwm.streamlit.app/)
 
 ---
 
@@ -29,111 +15,94 @@ This is a lightweight chatbot built using **LangChain**, **Groq LLMs**, and **St
 
 ```
 Chatbots/
-├── main.py               # Streamlit app
-├── requirements.txt      # Project dependencies
+│
+├── main.py             # Streamlit app logic
+├── requirements.txt    # Required Python packages
 └── .streamlit/
-    └── secrets.toml      # API key config (optional)
 ```
 
 ---
 
-## 🔑 Setup Instructions
+## ⚙️ How to Run Locally
 
-### 1. Clone the repo
+1. **Clone the Repo:**
 
 ```bash
-git clone https://github.com/your-username/groq-chatbot.git
-cd groq-chatbot
+git clone https://github.com/your-username/groqchatbot.git
+cd groqchatbot
 ```
 
-### 2. Create Virtual Environment
+2. **Create a Virtual Environment:**
 
 ```bash
 python -m venv .venv
-source .venv/bin/activate  # or `.venv\Scripts\activate` on Windows
+# Activate it:
+# On Windows:
+.venv\Scripts\activate
+# On macOS/Linux:
+source .venv/bin/activate
 ```
 
-### 3. Install Requirements
+3. **Install Dependencies:**
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 4. Add Your Groq API Key
+4. **Set your API key:**
 
-You can do this in one of two ways:
-
-#### Option A – Use Environment Variable
-
-In `main.py`, make sure you access:
-
-```python
-import os
-GROQ_API_KEY = os.getenv("GROQ_API_KEY")
-```
-
-Then set your API key:
-```bash
-export GROQ_API_KEY=your_key_here  # macOS/Linux
-set GROQ_API_KEY=your_key_here     # Windows
-```
-
-#### Option B – Use `.streamlit/secrets.toml`
+Create a `.streamlit/secrets.toml` file and paste:
 
 ```toml
-# .streamlit/secrets.toml
-GROQ_API_KEY = "your_groq_api_key"
+GROQ_API_KEY = "your_groq_api_key_here"
 ```
 
----
-
-## ▶️ Run the App
+5. **Run the Chatbot:**
 
 ```bash
 streamlit run main.py
 ```
 
-The app will open in your browser at:  
-`http://localhost:8501`
-
 ---
 
-## 🌐 Deploy to Streamlit Cloud (Free Hosting)
+## 🌍 Deployment on Streamlit Cloud
 
-1. Push your project to a public GitHub repo
-2. Visit [https://streamlit.io/cloud](https://streamlit.io/cloud)
-3. Click "New App" and connect your GitHub
-4. Choose the repo, set file path to `main.py`, and deploy!
+1. Go to [Streamlit Cloud](https://streamlit.io/cloud)
+2. Create a new app from your GitHub repo
+3. Under “Secrets”, add:
 
----
-
-## 📌 Example Prompt
-
-> **Input:** "What is LangChain?"  
-> **Output:** "LangChain is a framework for developing applications powered by language models..."
-
----
-
-## 🤖 Models You Can Use
-
-You can replace the model name depending on what Groq supports:
-
-```python
-model = ChatGroq(groq_api_key=GROQ_API_KEY, model_name="mixtral-8x7b-32768")
+```toml
+GROQ_API_KEY = "your_actual_groq_key"
 ```
 
-Visit: https://console.groq.com/docs/models
+4. Click **Deploy**, and done! 🎉
 
 ---
 
-## 📄 License
+## 🧠 How it Works
 
-MIT License — Free for personal and commercial use.
+- Uses `ChatGroq` from `langchain_groq` to interact with Groq's hosted models (e.g. `llama3-8b-8192`)
+- Input is taken from the Streamlit UI
+- Model generates the response and it's displayed on the same page
 
 ---
 
-## 🙋‍♂️ Author
+## ✨ Example Models You Can Use
 
-**Krishna Chauhan**  
-👨‍💻 [GitHub](https://github.com/KrishnaChauhan7)  
-📫 krishna.chauhan.ug22@nsut.ac.in
+- `llama3-8b-8192`
+- `mixtral-8x7b-32768`
+- `gemma-7b-it` ❌ (Deprecated)
+
+---
+
+## 🧑‍💻 Author
+
+👋 Made by Krishna Chauhan 
+Email: krishnachauhannsut@gmail.com
+Feel free to reach out for collab or suggestions!
+
+---
+
+## 📜 License
+
+MIT License
